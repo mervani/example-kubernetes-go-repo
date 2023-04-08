@@ -1,0 +1,16 @@
+resources:
+  - ../../base
+generatorOptions:
+  labels:
+    type: generated
+  annotations:
+    note: generated
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: myappset
+    target:
+      kind: ApplicationSet
+      name: cluster

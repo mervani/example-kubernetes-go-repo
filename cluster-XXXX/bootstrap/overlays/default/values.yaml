@@ -1,0 +1,20 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: apps-product-catalog
+    destination:
+      namespace: argocd
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/mervani/example-kubernetes-go-repo.git
+      targetRevision: main
+
+applications:
+
+  applicationsets:
+    destination:
+      namespace: argocd
+    source:
+      path: components/applicationsets/overlays/default

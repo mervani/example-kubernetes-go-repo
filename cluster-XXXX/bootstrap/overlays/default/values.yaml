@@ -3,7 +3,7 @@ default:
     enabled: true
     enableAutoSync: true
     autoSyncPrune: false
-    project: apps-product-catalog
+    project: default
     destination:
       namespace: argocd
       server: https://kubernetes.default.svc
@@ -17,4 +17,4 @@ applications:
     destination:
       namespace: argocd
     source:
-      path: components/applicationsets/overlays/default
+      path: cluster-XXXX/components/applicationsets/overlays/default

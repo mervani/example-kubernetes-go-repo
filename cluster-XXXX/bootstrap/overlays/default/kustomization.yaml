@@ -12,6 +12,7 @@ configMapGenerator:
   files:
     - configManagementPlugins=config.yaml
   literals:
+   - kustomize.buildOptions:="--enable-helm"
    - resource.customizations.useOpenLibs.argoproj.io_Application="true"
    - |
      resource.customizations.health.argoproj.io_Application=hs = {}

@@ -43,6 +43,8 @@ configMapGenerator:
      return hs
   name: argocd-cm
 
+helmGlobals:
+  chartHome: charts/argocd-app-of-app
 helmCharts:
 - name: argocd-app-of-app
   version: 0.2.0

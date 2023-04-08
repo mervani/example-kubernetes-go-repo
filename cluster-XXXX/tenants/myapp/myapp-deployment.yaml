@@ -22,4 +22,11 @@ spec:
       - image: quay.io/redhatworkshops/welcome-php
         name: welcome-php
         resources: {}
+
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 9999
+          failureThreshold: 1
+          periodSeconds: 10
 status: {}

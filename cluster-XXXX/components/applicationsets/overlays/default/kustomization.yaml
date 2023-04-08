@@ -6,6 +6,8 @@ generatorOptions:
   annotations:
     note: generated
 
+namePrefix: dev-
+
 patches:
   - patch: |-
       - op: replace

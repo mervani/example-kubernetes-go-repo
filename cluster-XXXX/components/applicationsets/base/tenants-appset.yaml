@@ -26,7 +26,7 @@ spec:
             factor: 2
             maxDuration: 5m
       source:
-        repoURL: https://github.com/christianh814/example-kubernetes-go-repo
+        repoURL: https://github.com/mervani/example-kubernetes-go-repo.git 
         targetRevision: main
         path: '{{path}}'
       destination:

@@ -1,0 +1,4 @@
+- name: kustomize-enable-helm
+  generate:
+    command: [ "sh", "-c" ]
+    args: [ "kustomize build --enable-helm" ]

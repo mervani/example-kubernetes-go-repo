@@ -9,9 +9,12 @@ resources:
 
 configMapGenerator:
 - behavior: merge
-  files:
-    - configManagementPlugins=config.yaml
   literals:
+   - configManagementPlugins=|
+     - name: kustomize-enable-helm
+       generate:
+         command: [ "sh", "-c" ]
+         args: [ "kustomize build --enable-helm" ]
    - resource.customizations.useOpenLibs.argoproj.io_Application="true"
    - |
      resource.customizations.health.argoproj.io_Application=hs = {}
@@ -48,5 +51,5 @@ helmCharts:
   version: 0.2.0
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
-  namespace: argocd
+  namespace: openshift-gitops
   releaseName: argocd-app-of-app-0.2.0

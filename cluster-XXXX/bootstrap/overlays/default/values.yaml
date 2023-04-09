@@ -2,7 +2,7 @@ default:
   app:
     enabled: true
     enableAutoSync: true
-    autoSyncPrune: false
+    autoSyncPrune: true
     project: default
     destination:
       namespace: argocd
@@ -14,7 +14,15 @@ default:
 applications:
 
   applicationsets:
+    annotations:
+      argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     destination:
       namespace: argocd
     source:
       path: cluster-XXXX/components/applicationsets/overlays/default
+    syncPolicyRetry:
+      limit: 15
+      backoff:
+        duration: 15s
+        factor: 2
+        maxDuration: 5m

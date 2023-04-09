@@ -13,6 +13,7 @@ configMapGenerator:
     - configManagementPlugins=config.yaml
   literals:
    - kustomize.buildOptions="--enable-helm"
+   - applicationsetcontroller.enable.progressive.syncs=true
    - resource.customizations.useOpenLibs.argoproj.io_Application="true"
    - |
      resource.customizations.health.argoproj.io_ApplicationSet=hs = {}
